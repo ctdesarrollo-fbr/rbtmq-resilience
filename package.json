@@ -1,5 +1,5 @@
 {
-  "name": "rbtmq-resilience",
+  "name": "@ctdesarrollo-pkgs/rbtmq-resilience",
   "version": "1.0.0",
   "description": "RabbitMQ resilience for ts services.",
   "type": "commonjs",
@@ -20,6 +20,13 @@
   },
   "author": "xKewlis",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctdesarrollo-fbr/rbtmq-resilience.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist",
     "README.md",

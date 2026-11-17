@@ -10,7 +10,7 @@ RabbitMQ resilience library for TypeScript microservices with resilient message 
 ## Installation
 
 ```bash
-pnpm add rbtmq-resilience
+pnpm add @ctdesarrollo-pkgs/rbtmq-resilience
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ pnpm add rbtmq-resilience
 
 ```ts
 import { Transaction } from "sequelize";
-import { EventProcessConfigDto } from "rbtmq-resilience";
+import { EventProcessConfigDto } from "@ctdesarrollo-pkgs/rbtmq-resilience";
 
 export const eventsToProcess: EventProcessConfigDto[] = [
     {
@@ -43,7 +43,7 @@ Throw to send the message through the retry flow.
 ### 2. Config
 
 ```ts
-import { QueueNamePartsDto, RabbitMQResilience, RbtmqNaming, RbtmqResilienceConfigDto } from "rbtmq-resilience";
+import { QueueNamePartsDto, RabbitMQResilience, RbtmqNaming, RbtmqResilienceConfigDto } from "@ctdesarrollo-pkgs/rbtmq-resilience";
 
 const parts = new QueueNamePartsDto(env.RABBIT_DOMAIN, env.RABBIT_SUBDOMAIN);
 const events = RbtmqNaming.consumerQueues(parts, "events");
