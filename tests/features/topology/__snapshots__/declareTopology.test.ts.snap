@@ -1,0 +1,395 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`declareTopology declares exchanges, resilient queues and bindings for a minimal service config 1`] = `
+[
+  {
+    "args": [
+      "app.integration",
+      "fanout",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertExchange",
+  },
+  {
+    "args": [
+      "app.direct",
+      "direct",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertExchange",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events-error",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events-retry",
+      {
+        "deadLetterExchange": "app.direct",
+        "deadLetterRoutingKey": "commerce.orders.checkout.events",
+        "durable": true,
+        "messageTtl": 15000,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events",
+      "app.direct",
+      "commerce.orders.checkout.events",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events-retry",
+      "app.direct",
+      "commerce.orders.checkout.events-retry",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events-error",
+      "app.direct",
+      "commerce.orders.checkout.events-error",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events",
+      "app.integration",
+      "commerce.orders.checkout.events",
+    ],
+    "method": "bindQueue",
+  },
+]
+`;
+
+exports[`declareTopology declares commands, tactical events, tactical bindings, extra consumers and bindings 1`] = `
+[
+  {
+    "args": [
+      "app.integration",
+      "fanout",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertExchange",
+  },
+  {
+    "args": [
+      "app.tactical",
+      "topic",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertExchange",
+  },
+  {
+    "args": [
+      "app.direct",
+      "direct",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertExchange",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events-error",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events-retry",
+      {
+        "deadLetterExchange": "app.direct",
+        "deadLetterRoutingKey": "commerce.orders.checkout.events",
+        "durable": true,
+        "messageTtl": 15000,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events",
+      "app.direct",
+      "commerce.orders.checkout.events",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events-retry",
+      "app.direct",
+      "commerce.orders.checkout.events-retry",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events-error",
+      "app.direct",
+      "commerce.orders.checkout.events-error",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.commands-error",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "svc.commands",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "svc.commands-retry",
+      {
+        "deadLetterExchange": "app.direct",
+        "deadLetterRoutingKey": "svc.commands",
+        "durable": true,
+        "messageTtl": 5000,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "svc.commands",
+      "app.direct",
+      "svc.commands",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.commands-retry",
+      "app.direct",
+      "svc.commands-retry",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.commands-error",
+      "app.direct",
+      "svc.commands-error",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.tactical-error",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "svc.tactical",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "svc.tactical-retry",
+      {
+        "deadLetterExchange": "app.direct",
+        "deadLetterRoutingKey": "svc.tactical",
+        "durable": true,
+        "messageTtl": 5000,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "svc.tactical",
+      "app.direct",
+      "svc.tactical",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.tactical-retry",
+      "app.direct",
+      "svc.tactical-retry",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.tactical-error",
+      "app.direct",
+      "svc.tactical-error",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.extra-error",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "svc.extra",
+      {
+        "durable": true,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "svc.extra-retry",
+      {
+        "deadLetterExchange": "app.direct",
+        "deadLetterRoutingKey": "svc.extra",
+        "durable": true,
+        "messageTtl": 1000,
+      },
+    ],
+    "method": "assertQueue",
+  },
+  {
+    "args": [
+      "svc.extra",
+      "app.direct",
+      "svc.extra",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.extra-retry",
+      "app.direct",
+      "svc.extra-retry",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.extra-error",
+      "app.direct",
+      "svc.extra-error",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "commerce.orders.checkout.events",
+      "app.integration",
+      "commerce.orders.checkout.events",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.commands",
+      "app.direct",
+      "svc.commands",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.tactical",
+      "app.tactical",
+      "commerce.orders.#",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.tactical",
+      "app.tactical",
+      "commerce.#",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.tactical",
+      "app.tactical",
+      "commerce.orders.#",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.tactical",
+      "app.tactical",
+      "commerce.checkout.#",
+    ],
+    "method": "bindQueue",
+  },
+  {
+    "args": [
+      "svc.extra",
+      "other.exchange",
+      "",
+    ],
+    "method": "bindQueue",
+  },
+]
+`;

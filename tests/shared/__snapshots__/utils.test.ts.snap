@@ -1,0 +1,35 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`shared utils public constants 1`] = `
+{
+  "CONSUMER": {
+    "COMMANDS": "commands",
+    "EVENTS": "events",
+    "TACTICAL_EVENTS": "tacticalEvents",
+  },
+  "CONTENT_TYPE": {
+    "JSON": "application/json",
+  },
+  "DEFAULTS": {
+    "PUBLISH_ATTEMPTS": 6,
+    "PUBLISH_RETRY_DELAY_MS": 1000,
+    "PUBLISH_RETRY_MAX_DELAY_MS": 16000,
+    "RECONNECT_DELAY_MS": 5000,
+    "RETRY_BACKOFF_MS": 2000,
+  },
+  "EXCHANGE": {
+    "DIRECT": "direct",
+    "FANOUT": "fanout",
+    "TOPIC": "topic",
+  },
+  "RABBITMQ_HEADERS": {
+    "ENDPOINT": "endpoint",
+    "EXCEPTION_DETAILS": "exception_details",
+    "MESSAGE_ID": "message_id",
+    "REDELIVERY_COUNT": "redelivery_count",
+    "RETRY_ENDPOINT": "retry_endpoint",
+    "SENDER": "sender",
+    "TYPE": "type",
+  },
+}
+`;
